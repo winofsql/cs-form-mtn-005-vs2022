@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp3
+﻿namespace cs_form_mtn_005_vs2022
 {
     partial class Form1
     {
