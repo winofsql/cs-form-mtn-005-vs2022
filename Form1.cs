@@ -1,7 +1,7 @@
 using System.Data.Odbc;
 using System.Diagnostics;
 
-namespace WinFormsApp3
+namespace cs_form_mtn_005_vs2022
 {
     public partial class Form1 : Form
     {
@@ -10,9 +10,9 @@ namespace WinFormsApp3
             InitializeComponent();
         }
 
-        private void Šm”F_Click(object sender, EventArgs e)
+        private void ç¢ºèª_Click(object sender, EventArgs e)
         {
-            // •K—v‚ÈƒNƒ‰ƒX
+            // å¿…è¦ãªã‚¯ãƒ©ã‚¹
             OdbcConnection myCon = new OdbcConnection();
             OdbcCommand myCommand = new OdbcCommand();
 
@@ -23,40 +23,40 @@ namespace WinFormsApp3
             }
 
 
-            // ƒRƒ}ƒ“ƒhƒIƒuƒWƒFƒNƒg‚ğÚ‘±‚ÉŠÖŒW•t‚¯‚é 
+            // ã‚³ãƒãƒ³ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ¥ç¶šã«é–¢ä¿‚ä»˜ã‘ã‚‹ 
             myCommand.Connection = myCon;
-            // ĞˆõƒR[ƒh‘¶İƒ`ƒFƒbƒN—p‚Ì SQL ì¬
-            string strQuery = @$"select * from Ğˆõƒ}ƒXƒ^
-                                    where ĞˆõƒR[ƒh = '{this.ĞˆõƒR[ƒh.Text}'";
+            // ç¤¾å“¡ã‚³ãƒ¼ãƒ‰å­˜åœ¨ãƒã‚§ãƒƒã‚¯ç”¨ã® SQL ä½œæˆ
+            string strQuery = @$"select * from ç¤¾å“¡ãƒã‚¹ã‚¿
+                                    where ç¤¾å“¡ã‚³ãƒ¼ãƒ‰ = '{this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.Text}'";
 
             myCommand.CommandText = strQuery;
             Debug.WriteLine($"DBG:{strQuery}");
 
             OdbcDataReader myReader = myCommand.ExecuteReader();
             bool check = myReader.Read();
-            // ˆ—‹æ•ª‚ªV‹K‚ÅAƒf[ƒ^‚ª‘¶İ‚µ‚½‚çƒGƒ‰[
-            if (this.ˆ—‹æ•ª.SelectedIndex == 0 && check)
+            // å‡¦ç†åŒºåˆ†ãŒæ–°è¦ã§ã€ãƒ‡ãƒ¼ã‚¿ãŒå­˜åœ¨ã—ãŸã‚‰ã‚¨ãƒ©ãƒ¼
+            if (this.å‡¦ç†åŒºåˆ†.SelectedIndex == 0 && check)
             {
                 myReader.Close();
                 myCon.Close();
-                MessageBox.Show($"“ü—Í‚³‚ê‚½ĞˆõƒR[ƒh‚ÍŠù‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚· : {this.ĞˆõƒR[ƒh.Text}");
+                MessageBox.Show($"å…¥åŠ›ã•ã‚ŒãŸç¤¾å“¡ã‚³ãƒ¼ãƒ‰ã¯æ—¢ã«ç™»éŒ²ã•ã‚Œã¦ã„ã¾ã™ : {this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.Text}");
 
-                // Ä“ü—Í‚ª•K—v‚È‚Ì‚ÅAƒtƒH[ƒJƒX‚µ‚Ä‘I‘ğ
-                this.ĞˆõƒR[ƒh.Focus();
-                this.ĞˆõƒR[ƒh.SelectAll();
+                // å†å…¥åŠ›ãŒå¿…è¦ãªã®ã§ã€ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ã¦é¸æŠ
+                this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.Focus();
+                this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.SelectAll();
                 return;
             }
 
-            // Ú‘±‰ğœ
+            // æ¥ç¶šè§£é™¤
             myCon.Close();
 
-            // ‘æ“ñ‰ï˜b‚Ö‘JˆÚ
-            this.ƒwƒbƒh•”.Enabled = false;
-            this.ƒ{ƒfƒB•”.Enabled = true;
+            // ç¬¬äºŒä¼šè©±ã¸é·ç§»
+            this.ãƒ˜ãƒƒãƒ‰éƒ¨.Enabled = false;
+            this.ãƒœãƒ‡ã‚£éƒ¨.Enabled = true;
 
-            // Å‰‚É“ü—Í•K—v‚ÈƒtƒB[ƒ‹ƒh‚ÉƒtƒH[ƒJƒX‚µ‚Ä‘I‘ğ
-            this.–¼.Focus();
-            this.–¼.SelectAll();
+            // æœ€åˆã«å…¥åŠ›å¿…è¦ãªãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ã¦é¸æŠ
+            this.æ°å.Focus();
+            this.æ°å.SelectAll();
 
         }
 
@@ -65,7 +65,7 @@ namespace WinFormsApp3
             bool result = true;
 
 
-            // Ú‘±•¶š—ñ‚Ìì¬
+            // æ¥ç¶šæ–‡å­—åˆ—ã®ä½œæˆ
             string server = "localhost";
             string database = "lightbox";
             string user = "root";
@@ -78,15 +78,15 @@ namespace WinFormsApp3
             bool functionExit = false;
             try
             {
-                // Ú‘± 
+                // æ¥ç¶š 
                 myCon.Open();
             }
             catch (Exception ex)
             {
                 functionExit = true;
-                MessageBox.Show($"Ú‘±ƒGƒ‰[ : {ex.Message}");
+                MessageBox.Show($"æ¥ç¶šã‚¨ãƒ©ãƒ¼ : {ex.Message}");
             }
-            // Ú‘±ƒGƒ‰[‚Ìˆ×
+            // æ¥ç¶šã‚¨ãƒ©ãƒ¼ã®ç‚º
             if (functionExit)
             {
                 result = false;
@@ -97,29 +97,29 @@ namespace WinFormsApp3
             return result;
         }
 
-        private void ƒLƒƒƒ“ƒZƒ‹_Click(object sender, EventArgs e)
+        private void ã‚­ãƒ£ãƒ³ã‚»ãƒ«_Click(object sender, EventArgs e)
         {
-            // ‘æˆê‰ï˜b(‰Šú)‚Ö‘JˆÚ
-            this.ƒwƒbƒh•”.Enabled = true;
-            this.ƒ{ƒfƒB•”.Enabled = false;
+            // ç¬¬ä¸€ä¼šè©±(åˆæœŸ)ã¸é·ç§»
+            this.ãƒ˜ãƒƒãƒ‰éƒ¨.Enabled = true;
+            this.ãƒœãƒ‡ã‚£éƒ¨.Enabled = false;
 
-            // Å‰‚É“ü—Í•K—v‚ÈƒtƒB[ƒ‹ƒh‚ÉƒtƒH[ƒJƒX‚µ‚Ä‘I‘ğ
-            this.ĞˆõƒR[ƒh.Focus();
-            this.ĞˆõƒR[ƒh.SelectAll();
+            // æœ€åˆã«å…¥åŠ›å¿…è¦ãªãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ã¦é¸æŠ
+            this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.Focus();
+            this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.SelectAll();
 
-            // ƒLƒƒƒ“ƒZƒ‹‚È‚Ì‚Å“ü—Í‚µ‚½ƒtƒB[ƒ‹ƒh‚ÌƒNƒŠƒA
-            this.–¼.Clear();
-            this.‹‹—^.Clear();
-            this.¶”NŒ“ú.Value = DateTime.Now;
+            // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãªã®ã§å…¥åŠ›ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã‚¯ãƒªã‚¢
+            this.æ°å.Clear();
+            this.çµ¦ä¸.Clear();
+            this.ç”Ÿå¹´æœˆæ—¥.Value = DateTime.Now;
 
         }
 
-        private void XV_Click(object sender, EventArgs e)
+        private void æ›´æ–°_Click(object sender, EventArgs e)
         {
-            // ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ•\¦
+            // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã‚’è¡¨ç¤º
             DialogResult result = MessageBox.Show(
-                "XV‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©?",
-                "XVŠm”F",
+                "æ›´æ–°ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹?",
+                "æ›´æ–°ç¢ºèª",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button2
@@ -127,18 +127,18 @@ namespace WinFormsApp3
 
             if (result == DialogResult.Yes)
             {
-                // ‰½‚à‚µ‚È‚¢
+                // ä½•ã‚‚ã—ãªã„
             }
             else
             {
-                // XV‚µ‚È‚¢‚Ì‚Åˆ—‚ğ”²‚¯‚é( No ‚ğ‘I‘ğ )
-                this.–¼.Focus();
-                this.–¼.SelectAll();
+                // æ›´æ–°ã—ãªã„ã®ã§å‡¦ç†ã‚’æŠœã‘ã‚‹( No ã‚’é¸æŠ )
+                this.æ°å.Focus();
+                this.æ°å.SelectAll();
                 return;
             }
 
 
-            // •K—v‚ÈƒNƒ‰ƒX
+            // å¿…è¦ãªã‚¯ãƒ©ã‚¹
             OdbcConnection myCon = new OdbcConnection();
             OdbcCommand myCommand = new OdbcCommand();
 
@@ -148,22 +148,22 @@ namespace WinFormsApp3
                 return;
             }
 
-            // XVˆ—
+            // æ›´æ–°å‡¦ç†
 
-            // ƒRƒ}ƒ“ƒhƒIƒuƒWƒFƒNƒg‚ğÚ‘±‚ÉŠÖŒW•t‚¯‚é 
+            // ã‚³ãƒãƒ³ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ¥ç¶šã«é–¢ä¿‚ä»˜ã‘ã‚‹ 
             myCommand.Connection = myCon;
-            // ĞˆõƒR[ƒh‘¶İƒ`ƒFƒbƒN—p‚Ì SQL ì¬
-            string strQuery = @$"insert into `Ğˆõƒ}ƒXƒ^` (
-	`ĞˆõƒR[ƒh` 
-	,`–¼` 
-	,`‹‹—^` 
-	,`¶”NŒ“ú` 
+            // ç¤¾å“¡ã‚³ãƒ¼ãƒ‰å­˜åœ¨ãƒã‚§ãƒƒã‚¯ç”¨ã® SQL ä½œæˆ
+            string strQuery = @$"insert into `ç¤¾å“¡ãƒã‚¹ã‚¿` (
+	`ç¤¾å“¡ã‚³ãƒ¼ãƒ‰` 
+	,`æ°å` 
+	,`çµ¦ä¸` 
+	,`ç”Ÿå¹´æœˆæ—¥` 
 )
  values(
-	'{this.ĞˆõƒR[ƒh.Text}'
-	,'{this.–¼.Text}'
-	,{this.‹‹—^.Text}
-	,'{this.¶”NŒ“ú.Value}'
+	'{this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.Text}'
+	,'{this.æ°å.Text}'
+	,{this.çµ¦ä¸.Text}
+	,'{this.ç”Ÿå¹´æœˆæ—¥.Value}'
 )";
 
             myCommand.CommandText = strQuery;
@@ -178,9 +178,9 @@ namespace WinFormsApp3
             catch (Exception ex)
             {
                 functionExit = true;
-                MessageBox.Show($"Ú‘±ƒGƒ‰[ : {ex.Message}");
+                MessageBox.Show($"æ¥ç¶šã‚¨ãƒ©ãƒ¼ : {ex.Message}");
             }
-            // Ú‘±ƒGƒ‰[‚Ìˆ×
+            // æ¥ç¶šã‚¨ãƒ©ãƒ¼ã®ç‚º
             if (functionExit)
             {
                 myCon.Close();
@@ -188,29 +188,29 @@ namespace WinFormsApp3
             }
 
 
-            // Ú‘±‰ğœ
+            // æ¥ç¶šè§£é™¤
             myCon.Close();
 
-            // ‘æˆê‰ï˜b(‰Šú)‚Ö‘JˆÚ
-            this.ƒwƒbƒh•”.Enabled = true;
-            this.ƒ{ƒfƒB•”.Enabled = false;
+            // ç¬¬ä¸€ä¼šè©±(åˆæœŸ)ã¸é·ç§»
+            this.ãƒ˜ãƒƒãƒ‰éƒ¨.Enabled = true;
+            this.ãƒœãƒ‡ã‚£éƒ¨.Enabled = false;
 
-            // Å‰‚É“ü—Í•K—v‚ÈƒtƒB[ƒ‹ƒh‚ÉƒtƒH[ƒJƒX‚µ‚Ä‘I‘ğ
-            this.ĞˆõƒR[ƒh.Focus();
-            this.ĞˆõƒR[ƒh.SelectAll();
+            // æœ€åˆã«å…¥åŠ›å¿…è¦ãªãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã—ã¦é¸æŠ
+            this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.Focus();
+            this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.SelectAll();
 
-            // ƒLƒƒƒ“ƒZƒ‹‚È‚Ì‚Å“ü—Í‚µ‚½ƒtƒB[ƒ‹ƒh‚ÌƒNƒŠƒA
-            this.ĞˆõƒR[ƒh.Clear();
-            this.–¼.Clear();
-            this.‹‹—^.Clear();
-            this.¶”NŒ“ú.Value = DateTime.Now;
+            // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãªã®ã§å…¥åŠ›ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã‚¯ãƒªã‚¢
+            this.ç¤¾å“¡ã‚³ãƒ¼ãƒ‰.Clear();
+            this.æ°å.Clear();
+            this.çµ¦ä¸.Clear();
+            this.ç”Ÿå¹´æœˆæ—¥.Value = DateTime.Now;
 
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.ˆ—‹æ•ª.SelectedIndex = 0;
+            this.å‡¦ç†åŒºåˆ†.SelectedIndex = 0;
         }
     }
 }
