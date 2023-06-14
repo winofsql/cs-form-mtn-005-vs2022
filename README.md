@@ -9,5 +9,5 @@
 
 ![image](https://github.com/winofsql/cs-form-mtn-005-vs2022/assets/1501327/5dcaaace-114f-47a5-9936-0d6ff83effee)
 
-
+[Microsoft : カスタム日時形式文字列](https://learn.microsoft.com/ja-jp/dotnet/standard/base-types/custom-date-and-time-format-strings)
 
