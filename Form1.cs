@@ -163,7 +163,7 @@ namespace cs_form_mtn_005_vs2022
 	'{this.社員コード.Text}'
 	,'{this.氏名.Text}'
 	,{this.給与.Text}
-	,'{this.生年月日.Value}'
+	,'{this.生年月日.Value:yyyy/MM/dd}'
 )";
 
             myCommand.CommandText = strQuery;
